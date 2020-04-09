@@ -52,7 +52,7 @@ $request->validate([
             'country' => $request->get('country')
         ]);
         $cust->save();
-        return redirect('/customers')->with('success', 'Customer saved!');
+        return redirect('/admin/customers')->with('success', 'Customer saved!');
     }
 
     /**
@@ -103,7 +103,7 @@ $request->validate([
         $customer->country = $request->get('country');
         $customer->save();
     
-        return redirect('/customers')->with('success', 'Customer updated!');
+        return redirect('/admin/customers')->with('success', 'Customer updated!');
     } 
 
     /**
@@ -116,6 +116,6 @@ $request->validate([
     {
     $customer= Customer::find($id);
     $customer->delete();
-        return redirect('/customers')->with('success', 'Customer deleted!');
+        return redirect('/admin/customers')->with('success', 'Customer deleted!');
       }
 }

@@ -1,5 +1,5 @@
 <div>
-	<div class="form-group">
+<div class="form-group">
 		<label for="cate_parent">
 			Category Parent
 		</label>
@@ -17,11 +17,11 @@
 				@endforeach
 		</select>
 	</div>	
-		<div class="form-group">
+	<div class="form-group">
 			<label for="cate_name">Category Name:</label>
-			<input type="text" class="form-control" name="cate_name" value="{{ $category ? category->cate_name : '' }}" placeholder=""/>
+			<input type="text" class="form-control" name="cate_name" value="{{ $category ? $category -> cate_name : '' }}" placeholder=""/>
 		</div>
 		<div class="form-group">
-			{!! Form::submit($formMode === 'edit' ? 'Update' : 'Create', ['class' => 'btn btn-primary']) !!}
+			{!! Form::submit($formMode === 'edit' ? 'update' : 'create', ['class' => 'btn btn-primary']) !!}
 		</div>
 	</div>

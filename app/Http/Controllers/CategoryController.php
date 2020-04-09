@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -40,15 +41,15 @@ class CategoryController extends Controller
     {
         $request->validate([
             'cate_name'=>'required',
-            'cate_parent'=>'required',
+            'cate_parent'=>'required'
         ]);
-        $cate = new Category();
-        $cate->cate_name = $request->cate_name;
+        $cates = new Category();
+        $cates->cate_name = $request->cate_name;
         $slug = Str::slug($request->cate_name,'-');
-        $cate->cate_slug = $slug;
-        $cate->cate_parent = $request->cate_parent;
-        $cate->save();
-        return redirect('/categories')->with('success','Category saved');
+        $cates->cate_slug = $slug;
+        $cates->cate_parent = $request->cate_parent;
+        $cates->save();
+        return redirect('/admin/categories')->with('success','Category saved!');
     }
 
     /**
@@ -72,7 +73,7 @@ class CategoryController extends Controller
     {
         $cates = Category::with('childs')->where('cate_parent',0)->select('cate_name','id')->get();
         $category = Category::findOrFail($id);
-        return view('admin.categories.edit',compact('cates','category'));
+        return view('admin.categories.edit', compact('cates','category'));
     }
 
     /**
@@ -86,7 +87,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'cate_name'=>'required',
-            'cate_parent'=>'required',
+            'cate_parent'=>'required'
         ]);
         $cate = Category::findOrFail($id);
         $cate->cate_name = $request->cate_name;
@@ -94,7 +95,7 @@ class CategoryController extends Controller
         $cate->cate_slug = $slug;
         $cate->cate_parent = $request->cate_parent;
         $cate->save();
-        return redirect('/categories')->with('success','Category updated');
+        return redirect('/admin/categories')->with('success','Category updated');
     }
 
     /**
@@ -107,7 +108,7 @@ class CategoryController extends Controller
     {
         $cate = Category::findOrFail($id);
         $cate->delete();
-        return redirect('/categories')->with('success','Category deleted');
+        return redirect('/admin/categories')->with('success','Category deleted');
     }
 }
 

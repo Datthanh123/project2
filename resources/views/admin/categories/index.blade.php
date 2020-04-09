@@ -4,7 +4,15 @@
     <div class="row">
         <h1 >List of Category</h1>     
     </div>
+    @if(session()->get('success'))
+        <div class="alert alert-success">
+          {{ session()->get('success') }}  
+        </div>
+      @endif
     <div class="row">
+    <div>
+        <a style="margin: 19px;" href="{{ route('categories.create')}}" class="btn btn-primary">New category</a>
+        </div> 
       <table style="text-align: center" class="table table-bordered tbClone" cellspacing="0" cellpadding="0">     
             <tr>
               <th>ID</th>
