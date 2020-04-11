@@ -39,20 +39,15 @@
     			<td>{{ $item->categories->cate_name }}</td>
     			<td><a href="{{ url('/admin/products/'. $item->id . '/edit') }}" title="Edit Page">
     				<button class="btn btn-info btn-sm" >Edit</button></a>
-                {!! Form::open([
-                    'method' => 'DELETE',
-                    'url' => ['/admin/products', $item->id],
-                    'style' => 'display:inline',
-                	]) !!}
+                  
 
-                {!! Form::button('Delete', 
-				array(
-					'type' => 'submit',
-					'class' => 'btn btn-danger btn-sm',
-					'title' => 'Delete product',
-					'onclick' => 'return confirm("Confirm delete?")',
-                )) !!}
-                {!! Form:close() !!}
+				
+
+				<form action="{{ route('products.destroy', $item->id)}}" method="post" style="display:inline;"  >
+                      @csrf
+                      @method('DELETE')
+                      <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
     			</td>
     		</tr>
     			@endforeach

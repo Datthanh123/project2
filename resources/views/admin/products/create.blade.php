@@ -18,8 +18,15 @@
             </ul>
         @endif
 
-          {!! Form::open(['url' => "{{route('products.store')}}", 'class' => 'form-horizontal clearfix','files'=> true]) !!}
+          <!-- {!! Form::open(['url' => "{{route('products.store')}}", 'class' => 'form-horizontal clearfix','files'=> true]) !!}
             @csrf
             @include('admin.products.form', ['formMode'=>'create']) 
-          {!! Form::close() !!}                                       
+          {!! Form::close() !!}  -->
+
+          <form method="post" action="{{ route('products.store') }}" class="form-horizontal clearfix f" files="true">
+              @csrf
+              @include ('admin.products.form', ['formMode' => 'create'])  
+          </form> 
+             
+                                            
     @endsection

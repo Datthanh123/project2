@@ -53,7 +53,7 @@ class ProductController extends Controller
             'product_name'=>'required',
             'product_teaser'=>'required',
             'product_content'=>'required',
-            'product_code'=>'required|unique:products,product_code,' . $id . 'ID',
+            'product_code'=>'required|unique:products',
             'product_price'=>'required',
             'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -103,13 +103,13 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         $this->validate($request,[
             'product_name'=>'required',
             'product_teaser'=>'required',
             'product_content'=>'required',
-            'product_code'=>'required|unique:products,product_code,' . $id . 'ID',
+            'product_code'=>'required|unique:products',
             'product_price'=>'required',
             'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -135,8 +135,8 @@ class ProductController extends Controller
      */
     public function destroy( $id)
     {
-        $product = Product::find($id);
+        $product = Product::findOrFail($id);
         $product->delete();
-        return redirect('admin/products')->with('success','Product deleted!');
+        return redirect('/admin/products')->with('success','Product deleted!');
     }
 }

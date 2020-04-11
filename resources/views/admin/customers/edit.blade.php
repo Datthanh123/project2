@@ -36,7 +36,7 @@
             </div>
     <div class="form-group">
                 <label for="tel">Tel:</label>
-                <input type="text" class="form-control" name="job_title" value={{ $customer->tel}} />
+                <input type="text" class="form-control" name="tel" value={{ $customer->tel}} />
             </div>
             <div class="form-group">
                 <label for="city">City:</label>

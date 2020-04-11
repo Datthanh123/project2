@@ -63,7 +63,7 @@ label{width: 20%}
 			</div>
 		</li>
 		<li>
-	    	{!! Form::submit($formMode === 'edit' ? 'Update' : 'Luu', ['class' => 'btn btn-primary']) !!}
+	    	{!! Form::submit($formMode === 'edit' ? 'update' : 'create', ['class' => 'btn btn-primary']) !!}
 	    </li>
 	</ul>
 </div>
