@@ -8,8 +8,8 @@
 				@foreach($cates as $item))
 					<option value="{{ $item->id }}">
 						@if($item->id == old('cate_parent', $category->cate_parent))
-							selected="selected"
-						@endif>{{ $item->cate_name }}
+							
+						@endif{{ $item->cate_name }}
 					</option>
 					@if(count($item->childs))
 					@include('admin.categories.child',['childs' => $item->childs])

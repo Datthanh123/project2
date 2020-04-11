@@ -83,7 +83,7 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'cate_name'=>'required',
@@ -95,7 +95,7 @@ class CategoryController extends Controller
         $cate->cate_slug = $slug;
         $cate->cate_parent = $request->cate_parent;
         $cate->save();
-        return redirect('/admin/categories')->with('success','Category updated');
+        return redirect('/admin/categories')->with('success','Category update!');
     }
 
     /**

@@ -14,11 +14,17 @@
                 @endforeach
             </ul>
         @endif
-          {!! Form::model($product,[
+          <!-- {!! Form::model($product,[
           'method' => 'PATCH',
           'url' => ['/admin/products',$product->id],
           'class' => 'f',
           'files' => true
           ]) !!}
-          @include('admin.products.form', ['formMode' => 'edit']) 
+          @include('admin.products.form', ['formMode' => 'edit'])  -->
+
+          <form method="post" action="{{ route('products.update', $product->id) }}" class="form-horizontal clearfix f" files="true">
+              @csrf
+              @method('PATCH')
+              @include ('admin.products.form', ['formMode' => 'edit'])  
+          </form>  
     @endsection

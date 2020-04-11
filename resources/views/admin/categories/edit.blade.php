@@ -16,13 +16,11 @@
           </div>
           <br/>
         @endif
-        <!-- {!! Form::open(['url' => "{{ route('categories.store') }}",'method' => 'post' , 'class' => 'form-horizontal clearfix f','files' => true]) !!}
-          @include ('admin.categories.form', ['formMode' => 'create']) 
-          {!! Form::close() !!}  -->
-          <form method="put" action="{{ route('categories.update', $category->id) }}" class="form-horizontal clearfix f" files="true">
+        <form method="post" action="{{ route('categories.update', $category->id) }}" class="form-horizontal clearfix f" files="true">
               @csrf
+              @method('PATCH')
               @include ('admin.categories.form', ['formMode' => 'edit'])  
-          </form>                                    
+          </form>                                  
       </div>
     </div>
     </div>

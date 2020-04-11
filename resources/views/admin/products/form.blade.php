@@ -48,6 +48,7 @@ label{width: 20%}
 				{!! $errors->first('name','<p class="help-block">:message</p>') !!}
 			</div>
 		</li>
+	
 		<li>
 			<div class="form-group{{$errors->has('name') ? 'has-error' : ''}}">
 				{!! Form::label('oldPrice','Gia cu',['class' => 'required']) !!}
