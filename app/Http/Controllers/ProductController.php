@@ -22,6 +22,7 @@ class ProductController extends Controller
            ->orWhere('product_name', 'LIKE', "%$keyword")
            ->orWhere('product_teaser', 'LIKE', "%$keyword")
            ->orWhere('product_content', 'LIKE', "%$keyword")
+           ->orWhere('product_price', 'LIKE', "%$keyword")
            ->latest()->paginate(10);
         }
         else{

@@ -1,5 +1,5 @@
 <style>
-.f{width: 50%;padding: 5px;}
+.f{width: 100%;padding: 5px;}
 li{list-style-type: none}
 label{width: 20%}
 .tb{width: 50%;padding: 5px;}
@@ -37,7 +37,7 @@ label{width: 20%}
 		<li>
 			<div class="form-group{{$errors->has('name') ? 'has-error' : ''}}">
 				{!! Form::label('product_content', 'Mo ta san pham', ['class' => 'required']) !!}
-				{!! Form::textarea('product_content', null, ('required' == 'required') ? ['class' =>'form-control description'] : ['class' => 'form-control']) !!}
+				{!! Form::textarea('product_content', null,['id' => 'editor1'], ('required' == 'required') ? ['class' =>'form-control description'] : ['class' => 'form-control']) !!}
 				{!! $errors->first('name','<p class="help-block">:message</p>') !!}
 			</div>
 		</li>

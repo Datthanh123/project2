@@ -24,6 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 {
 Route::get('/', function() {return view('admin.dashboard');} );
 Route::resource('customers', 'CustomerController');
+Route::resource('newscategories', 'NewsCategoryController');
+Route::resource('news', 'NewsController');
 Route::resource('categories', 'CategoryController');
 Route::resource('products', 'ProductController');
 });

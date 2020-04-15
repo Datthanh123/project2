@@ -26,6 +26,7 @@
           <form method="post" action="{{ route('products.store') }}" class="form-horizontal clearfix f" files="true">
               @csrf
               @include ('admin.products.form', ['formMode' => 'create'])  
+              
           </form> 
              
                                             
